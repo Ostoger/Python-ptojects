@@ -18,7 +18,6 @@ class Hacker:
         self.client_socket = None
         self.ip = None
         self.port = None
-        self.password_status = False
         self.login_password = {"login": "gyu", "password": " "}
 
     @staticmethod
@@ -34,8 +33,7 @@ class Hacker:
 
     def socket_connection(self, socket_opened):
         args = sys.argv
-        self.ip = str(args[1])
-        self.port = int(args[2])
+        self.ip, self.port = str(args[1]), int(args[2])
         address = (self.ip, self.port)
         socket_opened.connect(address)
 
